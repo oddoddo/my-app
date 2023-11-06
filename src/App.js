@@ -1,38 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 function App() {
     const navArr = [{ title: 'html' }, { title: 'css' }, { title: 'js' }];
+    const articleArr = [
+        { title: 'html', desc: 'html이란 모다모다' },
+        { title: 'css', desc: 'css란 모다모다' },
+        { title: 'js', desc: 'js란 모다모다' },
+    ];
+
+    const [currentPage, setCurrentPage] = useState('home');
+
+    const handleNavClick = (title) => {
+        setCurrentPage(title);
+    };
+
+    const getPageContent = () => {
+        if (currentPage === 'home') {
+            return <Article title="home" desc="home이란 모다모다" />;
+        } else {
+            const selectedArticle = articleArr.find((item) => {
+                return item.title === currentPage;
+            });
+            return <Article title={selectedArticle.title} desc={selectedArticle.desc} />;
+        }
+    };
+
     return (
         <div className="root">
-            <HeaderStyled title="리액트(React)" nav={navArr} />
-            <Article title="리액트란?" desc="desc1" />
-            <Article title="컴포넌트란?" desc="desc2" />
-            <Article title="props란?" desc="desc3" />
+            <HeaderStyled title="리액트(React)" nav={navArr} onNavClick={handleNavClick} />
+            {getPageContent()}
         </div>
     );
 }
 
-function Header({ title, nav }) {
-    // props.nav = [{title: 'html'}, {title: 'css'}, {title: 'js'}]
-    // const { title, nav } = props;
+function Header(props) {
     return (
         <header>
-            <h1>{title}</h1>
-            <Nav nav={nav} />
+            <h1>{props.title}</h1>
+            <Nav nav={props.nav} onNavClick={props.handleNavClick} />
         </header>
     );
 }
 
-function Nav({ nav }) {
-    // props.nav = [{title: 'html'}, {title: 'css'}, {title: 'js'}]
-    // const { nav } = props;
+function Nav(props) {
     return (
         <nav>
             <ul>
-                {nav.map((item, index) => (
+                {props.nav.map((item, index) => (
                     <li key={index}>
-                        <a href={'/sub/' + item.title}>{item.title}</a>
+                        <a href="/" onClick={() => props.onNavClick(item.title)}>
+                            {item.title}
+                        </a>
                     </li>
                 ))}
             </ul>
