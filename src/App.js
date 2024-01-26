@@ -1,9 +1,11 @@
 import Layout from './Layout'
 import Sort from './Sort'
+import Comments from './Comments'
 
 export default function App() {
     return (
         <>
+            <Comments />
             <Sort />
 
             {/* 부모 컴포넌트 */}
