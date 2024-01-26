@@ -9,11 +9,12 @@ export default function Layout() {
     // 또는 <Fragment></Fragment>를 사용한다.
     // 한 줄 이상일 경우 ()로 감싸준다.
 
-    const navArr = [{ title: 'html' }, { title: 'css' }, { title: 'js' }]
+    const navArr = [{ title: 'm-html' }, { title: 'm-css' }, { title: 'm-js' }]
+    const navD = [{ title: 'd-html' }, { title: 'd-css' }, { title: 'd-js' }]
 
     return (
         <div className="wrap">
-            <Header />
+            <Header nav={navD} />
             <NavMobile nav={navArr} />
             <Article title="html이란?" desc="html이란 뭐뭐다." />
             <Article title="css이란?" desc="css이란 뭐뭐다." />
