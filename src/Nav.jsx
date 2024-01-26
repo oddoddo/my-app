@@ -1,21 +1,26 @@
-const Nav = (props) => {
-    console.log(props) // {nav: Array(3)}
-    console.log(props.nav) // (3) [{…}, {…}, {…}]
-    console.log(props.nav[0]) // {title: "html"}
-    console.log(props.nav[0].title) // html
-    console.log(props.nav[1]) // {title: "css"}
-    console.log(props.nav[1].title) // css
-    console.log(props.nav[2]) // {title: "js"}
-    console.log(props.nav[2].title) // js
+import { AiFillCar } from 'react-icons/ai'
+
+const Nav = ({ nav }) => {
+    // console.log(props) // {nav: Array(3)}
+    // console.log(props.nav) // (3) [{…}, {…}, {…}]
+    // console.log(props.nav[0]) // {title: "html"}
+    // console.log(props.nav[0].title) // html
+    // console.log(props.nav[1]) // {title: "css"}
+    // console.log(props.nav[1].title) // css
+    // console.log(props.nav[2]) // {title: "js"}
+    // console.log(props.nav[2].title) // js
 
     return (
         <nav>
             {/* 문자가 아닌 데이터를 받을 땐  {}로 감싸주어야 한다. */}
             <ul>
-                {props.nav.map((item, index) => (
+                {nav.map((item, index) => (
                     <li key={index}>
                         {/* /sub/title.html로 이동하는 링크. 여기서 item.title은 각 항목의 제목(html, css, js)입니다. */}
-                        <a href={`/sub/${item.title}.html`}>{item.title}</a>
+                        <a href={`/sub/${item.title}.html`}>
+                            <AiFillCar />
+                            {item.title}
+                        </a>
                     </li>
                 ))}
             </ul>

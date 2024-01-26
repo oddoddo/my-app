@@ -1,8 +1,11 @@
 import Layout from './Layout'
+import Sort from './Sort'
 
 export default function App() {
     return (
         <>
+            <Sort />
+
             {/* 부모 컴포넌트 */}
             <Cat name="가을" age="2" />
             {/* {name: '가을', age: 2} 객체가 Cat 컴포넌트로 전달된다. */}

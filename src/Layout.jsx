@@ -14,7 +14,7 @@ export default function Layout() {
 
     return (
         <div className="wrap">
-            <Header nav={navD} />
+            <Header logo="가을회사" nav={navD} />
             <NavMobile nav={navArr} />
             <Article title="html이란?" desc="html이란 뭐뭐다." />
             <Article title="css이란?" desc="css이란 뭐뭐다." />

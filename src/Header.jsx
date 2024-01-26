@@ -2,11 +2,11 @@ import styled from 'styled-components'
 import Nav from './Nav'
 
 // 함수 선언식
-function Header(props) {
+function Header({ nav, logo }) {
     return (
         <Hd>
-            header
-            <Nav nav={props.nav} />
+            <h1>{logo}</h1>
+            <Nav nav={nav} />
         </Hd>
     )
 }
