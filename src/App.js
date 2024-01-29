@@ -1,10 +1,12 @@
 import Layout from './Layout'
 import Sort from './Sort'
 import Comments from './Comments'
+import Product from './Product'
 
 export default function App() {
     return (
         <>
+            <Product />
             <Comments />
             <Sort />
 
