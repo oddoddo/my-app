@@ -26,7 +26,7 @@ const Comments = () => {
     return (
         <>
             {commetsArr.map((item, index) => (
-                <Comment key={index} />
+                <Comment key={index} data={item} />
             ))}
         </>
     )
