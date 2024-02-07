@@ -2,14 +2,26 @@ import Layout from './Layout'
 import Sort from './Sort'
 import Comments from './Comments'
 import Product from './Product'
+import Event from './Event'
+import State from './State'
+import SetNumber from './SetNumber'
 
 export default function App() {
     return (
         <>
+            <SetNumber />
+            <hr />
+            <State />
+            <hr />
+            <Event />
+            <hr />
             <Product />
+            <hr />
             <Comments />
+            <hr />
             <Sort />
 
+            <hr />
             {/* 부모 컴포넌트 */}
             <Cat name="가을" age="2" />
             {/* {name: '가을', age: 2} 객체가 Cat 컴포넌트로 전달된다. */}
