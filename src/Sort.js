@@ -13,14 +13,19 @@ const Sort = () => {
         { value: '농장', icon: <AiFillCar /> },
     ]
 
-    // 초기 상태를 0으로 설정하여 첫 번째 항목이 선택된 상태로 시작
-    const [selected, setSelected] = useState(0)
+    const [sel, setSel] = useState(0)
 
     return (
         <SortStyled>
             <ul>
                 {sortArr.map((item, index) => (
-                    <li key={index} onClick={() => setSelected(index)} className={selected === index ? 'active' : ''}>
+                    <li
+                        key={index}
+                        onClick={() => {
+                            setSel(index)
+                        }}
+                        className={sel === index ? 'active' : ''}
+                    >
                         {/* // 클릭 시, selected의 상태를 변경 
                     // selected의 상태가 변경되면, 화면이 다시 렌더링되어 selected === index가 true가 되어 active 클래스가 추가된다. */}
                         {item.icon}
