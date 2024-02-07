@@ -6,10 +6,12 @@ import Event from './Event'
 import State from './State'
 import SetNumber from './SetNumber'
 import Sort2 from './Sort2'
+import Switch from './Switch'
 
 export default function App() {
     return (
         <>
+            <Switch />
             <Sort2 />
             <hr />
             <SetNumber />
