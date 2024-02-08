@@ -1,9 +1,10 @@
 import switchOn from './assets/images/switch-on.svg'
 import switchOff from './assets/images/switch-off.svg'
+import switchImg from './assets/images/switch@2x.png'
 import { useState } from 'react'
 import { Box } from '@chakra-ui/react'
 
-const Switch = () => {
+const Switch2 = () => {
     const [isToggled, setIsToggled] = useState(false)
     const [isToggled2, setIsToggled2] = useState(false)
 
@@ -16,6 +17,7 @@ const Switch = () => {
                     onClick={() => {
                         setIsToggled(!isToggled)
                     }}
+                    style={{ width: 100, height: 100 }}
                 />
 
                 <div>{isToggled ? '켜짐' : '꺼짐'}</div>
@@ -31,8 +33,10 @@ const Switch = () => {
                 h={200}
                 bg={`url(${isToggled2 ? switchOn : switchOff}) no-repeat 0 0 / contain`}
             />
+
+            <Box w={372} h={200} bg={`url(${switchImg}) no-repeat 0 ${isToggled2 ? 0 : '-287px'}`} />
         </>
     )
 }
 
-export default Switch
+export default Switch2

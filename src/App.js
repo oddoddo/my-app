@@ -6,7 +6,7 @@ import Event from './Event'
 import State from './State'
 import SetNumber from './SetNumber'
 import Sort2 from './Sort2'
-import Switch from './Switch'
+import Switch from './Switch2'
 
 export default function App() {
     return (

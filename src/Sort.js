@@ -13,7 +13,7 @@ const Sort = () => {
         { value: '농장', icon: <AiFillCar /> },
     ]
 
-    const [sel, setSel] = useState(0)
+    const [selected, setSelected] = useState(0)
 
     return (
         <SortStyled>
@@ -22,9 +22,9 @@ const Sort = () => {
                     <li
                         key={index}
                         onClick={() => {
-                            setSel(index)
+                            setSelected(index)
                         }}
-                        className={sel === index ? 'active' : ''}
+                        className={selected === index ? 'active' : ''}
                     >
                         {/* // 클릭 시, selected의 상태를 변경 
                     // selected의 상태가 변경되면, 화면이 다시 렌더링되어 selected === index가 true가 되어 active 클래스가 추가된다. */}
