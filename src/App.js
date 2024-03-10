@@ -7,10 +7,19 @@ import State from './State'
 import SetNumber from './SetNumber'
 import Sort2 from './Sort2'
 import Switch from './Switch2'
+import Counter from './component/counter/Counter'
+import UsersList from './component/promise/UserList'
 
 export default function App() {
     return (
         <>
+            <UsersList />
+            <h1>React 배우기</h1>
+            {/* counter 구현하기 */}
+            <h2>Simple Counter</h2>
+            <Counter />
+
+            <h2>Switch</h2>
             <Switch />
             <Sort2 />
             <hr />
