@@ -1,12 +1,11 @@
-import { useState } from 'react'
+import React, { useRef } from 'react'
 
-const SignUp = () => {
-    const [user, setUser] = useState({
-        name: '',
-        gender: '',
-        age: '',
-        intro: '',
-    })
+// 최적화를 위해 React.memo를 사용
+const SignUp = React.memo(({ user, setUser }) => {
+    console.log('컴포넌트 업데이트')
+
+    // inputRef를 선언
+    const inputRef = useRef()
 
     const handleOnChange = (e) => {
         console.log(e.target.name, e.target.value)
@@ -18,14 +17,19 @@ const SignUp = () => {
         })
     }
 
+    const handleReset = () => {
+        inputRef.current.value = ''
+    }
+
     return (
         <div>
-            <h1>SignUp</h1>
+            <h2>SignUp</h2>
 
             <form>
                 <div>
                     <label htmlFor="name">이름</label>
                     <input
+                        ref={inputRef}
                         onChange={handleOnChange}
                         type="text"
                         id="name"
@@ -33,6 +37,7 @@ const SignUp = () => {
                         value={user.name}
                         placeholder="이름을 입력하세요."
                     />
+                    <button onClick={handleReset}>초기화</button>
                 </div>
                 <div>
                     <label htmlFor="gender">성별</label>
@@ -58,6 +63,6 @@ const SignUp = () => {
             </form>
         </div>
     )
-}
+})
 
 export default SignUp

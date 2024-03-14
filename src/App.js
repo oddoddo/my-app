@@ -1,17 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import UsersList from './components/api/UsersList'
 import TodoApp from './components/todolist/TodoApp'
 import TodoApp2 from './components/todolist2/TodoApp'
 import Arrangement, { Body, Header } from './Arrangement'
 import SignUp from './SignUp'
+import CounterApp from './component/counter/ConterApp'
 
 function App() {
+    const [user, setUser] = useState({
+        name: '',
+        gender: '',
+        age: '',
+        intro: '',
+    })
+
     return (
         <div>
-            <SignUp />
+            <CounterApp />
+            <br />
             <hr />
-            {/* <Arrangement /> */}
-            {/* <Header />
+            <br />
+            <SignUp user={user} setUser={setUser} />
+            <br />
+            <hr />
+            <br />
+            {/* <Arrangement />
+            <Header />
             <Body /> */}
             {/* <TodoApp /> */}
             <br />
