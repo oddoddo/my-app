@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import UsersList from './components/api/UsersList'
 import TodoApp from './components/todolist/TodoApp'
 import TodoApp2 from './components/todolist2/TodoApp'
 import Arrangement, { Body, Header } from './Arrangement'
 import SignUp from './SignUp'
 import CounterApp from './component/counter/ConterApp'
+import Timer from './component/Timer'
 
 function App() {
     const [user, setUser] = useState({
@@ -16,13 +17,26 @@ function App() {
 
     const [count, setCount] = useState(0)
 
-    // 마운팅 시
+    const didMountRef = useRef(false)
+
     useEffect(() => {
-        console.log('마운팅 & 업데이트')
+        if (!didMountRef.current) {
+            // 마운팅 시
+            didMountRef.current = true
+            return
+        } else {
+            // 업데이트 시
+            console.log('업데이트')
+        }
     })
 
     return (
         <div>
+            <TodoApp />
+            <br />
+            <hr />
+            <br />
+            {/* <Timer /> */}
             <h2>useEffect</h2>
             <p>{count}</p>
             <button
