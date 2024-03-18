@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import TodoHd from './TodoHd'
 import TodoEditor from './TodoEditor'
 import TodoList from './TodoList'
@@ -28,10 +28,12 @@ function TodoApp() {
     // useState로 todos 상태를 관리합니다.
     const [todos, setTodos] = useState(mockTodo)
 
+    const idRef = useRef(4)
+
     // 할 일을 추가하는 함수
     const addTodo = (task) => {
         const newTodo = {
-            id: 0,
+            id: idRef.current++, // id를 증가시키면서 생성합니다.
             isDone: false,
             task,
             createDate: new Date().getTime(),
