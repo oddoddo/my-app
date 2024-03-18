@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import TodoItem from './TodoItem'
 
-export default function TodoList({ todos, onUpdate }) {
+export default function TodoList({ todos, onUpdate, onDelete }) {
     const [search, setSearch] = useState('')
 
     const onSearch = (e) => {
@@ -22,7 +22,7 @@ export default function TodoList({ todos, onUpdate }) {
             <ul>
                 {/* getSearchTodo에 필터링 된 목록만 표시 */}
                 {getSearchTodo().map((item) => (
-                    <TodoItem key={item.id} onUpdate={onUpdate} {...item} />
+                    <TodoItem key={item.id} onUpdate={onUpdate} onDelete={onDelete} {...item} />
                 ))}
             </ul>
         </div>
