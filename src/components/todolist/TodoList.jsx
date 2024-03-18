@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import TodoItem from './TodoItem'
 
-export default function TodoList({ todos }) {
+export default function TodoList({ todos, onUpdate }) {
     const [search, setSearch] = useState('')
 
     const onSearch = (e) => {
@@ -11,7 +11,7 @@ export default function TodoList({ todos }) {
 
     // 검색어를 포함하는 할 일 목록을 저장합니다.
     const getSearchTodo = () => {
-        return todos.filter((item) => item.task.includes(search))
+        return todos.filter((item) => item.task.toLowerCase().includes(search.toLowerCase()))
     }
 
     return (
@@ -22,7 +22,7 @@ export default function TodoList({ todos }) {
             <ul>
                 {/* getSearchTodo에 필터링 된 목록만 표시 */}
                 {getSearchTodo().map((item) => (
-                    <TodoItem key={item.id} {...item} />
+                    <TodoItem key={item.id} onUpdate={onUpdate} {...item} />
                 ))}
             </ul>
         </div>

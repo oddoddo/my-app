@@ -41,11 +41,20 @@ function TodoApp() {
         setTodos([newTodo, ...todos])
     }
 
+    // 할 일 완료 상태를 변경하는 함수
+    // isDone을 토글하는 함수
+    const onUpdate = (id) => {
+        setTodos(
+            // id가 일치하는 할 일의 isDone을 반전시킵니다.
+            todos.map((it) => (it.id === id ? { ...it, isDone: !it.Done } : it))
+        )
+    }
+
     return (
         <div>
             <TodoHd />
             <TodoEditor addTodo={addTodo} />
-            <TodoList todos={todos} />
+            <TodoList todos={todos} onUpdate={onUpdate} />
         </div>
     )
 }
